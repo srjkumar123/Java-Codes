@@ -1,55 +1,51 @@
-package Ags1;
+package Ags2;
 
+class Student{
+    //instance variables
+    String name;
+    int age;
+    String department;
 
-//Vehicle Class
-class Vehicle {
-    //method to print
-    void start(){
-        System.out.println("Vehicle started");
+    //default constructor
+    Student(){
+        name = "Unknown";
+        age = 20;
+        department = "Unassigned";
+    }
+
+    //Two parameter Constructor
+    Student(String name, int age){
+        this.name = name;
+        this.age = age;
+        department = "IT";
+    }
+
+    //Three parameter Constructor
+    Student(String name, int age, String department){
+        this.name = name;
+        this.age = age;
+        this.department = department;
     }
 }
-//Car class extends the VEhicle
-class Car extends Vehicle {
 
-    //start method overridden to "Car started."
-    @Override
-    void start() {
-        System.out.println("Car started.");
-    }
-}
-class Motorcycle extends Vehicle {
-
-    //methodn overridden to print Motorcycle started
-
-    @Override
-    void start() {
-        System.out.println("Motorcycle started.");
-    }
-}
-
-//Garage class
-class Garage {
-    //method taking Vehicle obj as arg
-    void serviceVehicle(Vehicle vehicle){
-
-        vehicle.start();
-        System.out.println("Vehicle serviced.");
-    }
-}
 
 public class Main {
-
     public static void main(String[] args) {
-        //Car object created with parent reference
-        Vehicle car = new Car();
-        //Car object created with parent reference
-        Vehicle bike = new Motorcycle();
-        //Garage obj created
-        Garage g1 = new Garage();
+        //Calling Default Constructor
+        System.out.println("Default Constructor: ");
+        Student s1 = new Student();
+        System.out.println(s1.name +"\n"+ s1.age +"\n"+ s1.department);
+        System.out.println("========================================");
 
-        //passing car and bike obj in garage
-        g1.serviceVehicle(car);
-        g1.serviceVehicle(bike);
+        //Calling Both pameterized constructor
+        System.out.println("Two parameterized constructor: ");
+        Student s2 = new Student("Suraj", 21);
+        System.out.println(s2.name +"\n"+ s2.age +"\n"+ s2.department);
+        System.out.println("========================================");
+
+
+        System.out.println("Three parameterized constructor: ");
+        Student s3 = new Student("Suraj", 21, "Software Development");
+        System.out.println(s3.name +"\n"+ s3.age +"\n"+ s3.department);
     }
 }
-
